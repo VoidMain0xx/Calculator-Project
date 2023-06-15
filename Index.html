@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator 
+    </title>
+
+    <link rel="stylesheet" href="util.css">
+</head>
+<body>
+    <h1 class="text-center">Welcome to the Calc Project</h1>
+
+    <div class="container">
+        <input type = "text" class="calc-display">
+            
+    </input>
+
+        <div class="row">
+            <button class="buttons" class="redish">C</button>
+            <button class="buttons">=</button>
+            <button class="buttons">%</button>
+            <button class="buttons">/</button>
+        </div>
+
+        <div class="row">
+            <button class="buttons">7</button>
+            <button class="buttons">8</button>
+            <button class="buttons">9</button>
+            <button class="buttons">*</button>
+        </div>
+
+        <div class="row">
+            <button class="buttons">4</button>
+            <button class="buttons">5</button>
+            <button class="buttons">6</button>
+            <button class="buttons">-</button>
+        </div>
+
+        <div class="row">
+            <button class="buttons">1</button>
+            <button class="buttons">2</button>
+            <button class="buttons">3</button>
+            <button class="buttons">+</button>
+        </div>
+
+        <div class="row">
+            <button class="button-zero">0</button>
+            <button class="buttons">.</button>
+            <button class="buttons">+</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    let string = "";
+let button = document.querySelectorAll('.buttons');
+Array.from(button).forEach((buttons)=>{
+  buttons.addEventListener('click', (e)=>{
+    if(e.target.innerHTML == '='){
+      string = eval(string);
+      document.querySelector('.calc-display').value = string;
+    }
+    else if(e.target.innerHTML == 'C'){
+      string = ""
+      document.querySelector('.calc-display').value = string;
+    }
+    else{ 
+    console.log(e.target)
+    string = string + e.target.innerHTML;
+    document.querySelector('.calc-display').value = string;
+      }
+  })
+})
+</script>
+</body>
+</html>
